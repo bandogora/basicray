@@ -351,3 +351,9 @@ MigrationBackup/
 
 # Out files
 *.ppm
+
+# VSCode
+.vscode/*
+
+# Object dir
+obj_dir/*
