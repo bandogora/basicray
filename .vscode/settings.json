@@ -1,0 +1,5 @@
+{
+  "files.exclude": {
+    "**/intersect_tests/tbs": true
+  }
+}

@@ -1,4 +1,4 @@
-#include "ray.h"
+ #include "ray.h"
 #include "vec3.h"
 
 #include <chrono>
@@ -10,7 +10,7 @@ int count = 0;
 
 void make_test(const float r[3], float rad, bool out) {
   std::fstream f;
-  std::string name = "intersect_tests/intersect_tb" + std::to_string(count) + ".v";
+  std::string name = "intersect_tests/tbs/intersect_tb" + std::to_string(count) + ".v";
   f.open(name, std::fstream::out);
   f << "`include \"intersect.v\"" << std::endl;
   f << "module intersect_tb();" << std::endl;
@@ -85,14 +85,15 @@ int main() {
   f << "V=0" << std::endl;
   f << "while [ $V -le "  << count << " ]" << std::endl;
   f << "do" << std::endl;
-  f << "  iverilog -o intersect_$V intersect_tb$V.v &> /dev/null" << std::endl;
-  f << "  vvp intersect_$V >> results_v" << std::endl;
+  f << "  iverilog -o ~/basicray/intersect_tests/tbs/intersect_$V ~/basicray/intersect_tests/tbs/intersect_tb$V.v &> /dev/null" << std::endl;
+  f << "  vvp ~/basicray/intersect_tests/tbs/intersect_$V >> ~/basicray/intersect_tests/results_v" << std::endl;
+  f << "  echo -en '\\r'$V/" << count << std::endl;
   f << "  ((V++))" << std::endl;
   f << "done" << std::endl;
-  f << "results_c:" << std::endl;
-  f << "awk '{print $1}' results_c | sort | uniq -c" << std::endl;
-  f << "results_v:" << std::endl;
-  f << "awk '{print $1}' results_v | sort | uniq -c" << std::endl;
+  f << "echo -e '\\n'results_c:" << std::endl;
+  f << "awk '{print $1}' ~/basicray/intersect_tests/results_c | sort | uniq -c" << std::endl;
+  f << "echo results_v:" << std::endl;
+  f << "awk '{print $1}' ~/basicray/intersect_tests/results_v | sort | uniq -c" << std::endl;
   f.close();
 
   return(0);
