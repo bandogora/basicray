@@ -4,12 +4,15 @@
 
 module intersect(dir, rad, out);
 
-// oc = r.origin() - center;
-//  a = dot(r.direction(), r.direction());
-//  b = 2.0 * dot(oc, r.direction());
-//  c = dot(oc, oc) - radius*radius;
-//  discriminant = b*b - 4*a*c;
-//  temp = discriminant > 0;
+/* Function to replicate
+  oc = r.origin() - center;
+  a = dot(r.direction(), r.direction());
+  b = 2.0 * dot(oc, r.direction());
+  c = dot(oc, oc) - radius*radius;
+  discriminant = b*b - 4*a*c;
+  temp = discriminant > 0;
+  return(temp);
+*/
 
 // define Inputs
 input [191:0] dir;
