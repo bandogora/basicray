@@ -1,17 +1,17 @@
 # basicray
 
-A ray tracer based on [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html) written in verilog
+A hardware accelerated ray tracer based on a simple version of [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html). Currently, only the `intersect` function has been accelerated. This is a work in progress and only functions as an example for now. Written in C++ and Verilog.
 
 ## Testing equivalence
 
 To run the equivalence tests first run
 
 ```bash
-bash test_prep.sh
+sh test_prep.sh
 ```
 
 Then run
 
 ```bash
-bash intersect_tests/run_tbs.sh
+sh intersect_tests/run_tbs.sh
 ```
